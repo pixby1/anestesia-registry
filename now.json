@@ -1,0 +1,5 @@
+{
+    "env": {
+        "SENDGRID_API_KEY": "@anestesia-sengrid-api-key"
+    }
+}
