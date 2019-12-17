@@ -19,7 +19,7 @@ function emailUser(email: string, society: string) {
     content: [
       {
         type: 'text/html',
-        value: `Gracias por registrate, a la brevedad lo incluiremos en la condefederación de sociedades <b>${society}</b>`
+        value: `Gracias por registrate, a la brevedad lo incluiremos en la condefederación de la sociedad de <b>${society}</b>`
       }
     ]
   };
