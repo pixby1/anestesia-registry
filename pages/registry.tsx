@@ -153,7 +153,7 @@ const Registry = () => {
         initialValues={initialValues}
         validationSchema={yupSchema}
         onSubmit={values => {
-          const template = tinytime('{DD}/{MM}/{YYYY}-{H}:{mm}:{ss}:{a}');
+          const template = tinytime('{DD}/{MM}/{YYYY}');
           fetch('https://anestesia-dashboard.justinmark.now.sh/api/user', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
