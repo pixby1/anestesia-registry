@@ -79,11 +79,11 @@ const RadioButton = (props: RadioProps) => {
         }}
       >
         <label style={{ marginRight: 10 }}>
-          <Radio style={{ marginRight: 5 }} value="anesthesiologist" />
+          <Radio style={{ marginRight: 5 }} value="anestesiólogo" />
           anestesiólogo
         </label>
         <label>
-          <Radio style={{ marginRight: 5 }} value="resident" />
+          <Radio style={{ marginRight: 5 }} value="residente" />
           residente
         </label>
       </RadioGroup>
