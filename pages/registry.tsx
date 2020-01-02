@@ -31,7 +31,7 @@ interface FormValues {
   dni: string;
   jobRole: string;
   country: CountrySelect | any;
-  societys: SocietySelect | any;
+  society: SocietySelect | any;
 }
 
 interface SelectProps {
@@ -119,7 +119,7 @@ const initialValues: FormValues = {
   dni: '',
   jobRole: '',
   country: '',
-  societys: ''
+  society: ''
 };
 
 const yupSchema = Yup.object({
@@ -130,8 +130,8 @@ const yupSchema = Yup.object({
     .required('Requerido'),
   dni: Yup.string().required('Requerido'),
   jobRole: Yup.string().required('Requerido'),
-  country: Yup.string().required('Seleccióne un país'),
-  societys: Yup.string().required('Seleccióne una sociedad')
+  country: Yup.string().required('Requerido'),
+  society: Yup.string().required('Requerido')
 });
 
 const TextInput = ({ label, ...props }: any) => {
@@ -164,7 +164,7 @@ const Registry = () => {
               jobRole: values.jobRole,
               dni: values.dni,
               country: values.country?.label,
-              society: values.societys?.label,
+              society: values.society?.label,
               date: template.render(new Date())
             })
           })
@@ -176,7 +176,7 @@ const Registry = () => {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                   email: values.email,
-                  society: values.societys?.label
+                  society: values.society?.label
                 })
               });
             })
@@ -201,7 +201,7 @@ const Registry = () => {
               <FormLabel>País</FormLabel>
               <MySelect
                 name="country"
-                placeholder="Elija un país"
+                placeholder="Seleccione un país..."
                 value={values.country}
                 options={countries}
                 onChange={setFieldValue}
@@ -210,13 +210,13 @@ const Registry = () => {
               />
               <FormLabel>Sociedad</FormLabel>
               <MySelect
-                name="societys"
-                placeholder="Elija una sociedad"
-                value={values.societys}
+                name="society"
+                placeholder="Seleccione una sociedad..."
+                value={values.society}
                 options={societys}
                 onChange={setFieldValue}
                 onBlur={setFieldTouched}
-                error={errors.societys}
+                error={errors.society}
               />
               <Button
                 type="submit"
