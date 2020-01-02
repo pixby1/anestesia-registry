@@ -5,7 +5,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import fetch from 'node-fetch';
 
 // Utils
-import { errorWrapper } from '../../lib/utils/error-wrapper';
+import { errorWrapper, withApiHeaders } from '../../lib/utils';
 
 // lib
 import {
@@ -73,4 +73,4 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
   });
 }
 
-export default errorWrapper(handler);
+export default errorWrapper(withApiHeaders(handler, { methods: ['POST'] }));
