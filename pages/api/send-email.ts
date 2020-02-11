@@ -20,7 +20,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'POST') {
     const { email, society } = req.body;
     const response = await fetch(
-      'https://anestesia-dashboard.justinmark.now.sh/api/only-supervisor',
+      'https://dashboard.anestesiaclasa.org/api/only-supervisor',
       {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
