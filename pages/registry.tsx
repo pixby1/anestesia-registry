@@ -28,7 +28,6 @@ interface FormValues {
   name: string;
   lastName: string;
   email: string;
-  dni: string;
   jobRole: string;
   country: CountrySelect | any;
   society: SocietySelect | any;
@@ -116,7 +115,6 @@ const initialValues: FormValues = {
   name: '',
   lastName: '',
   email: '',
-  dni: '',
   jobRole: '',
   country: '',
   society: ''
@@ -128,7 +126,6 @@ const yupSchema = Yup.object({
   email: Yup.string()
     .email('Email invalidado')
     .required('Requerido'),
-  dni: Yup.string().required('Requerido'),
   jobRole: Yup.string().required('Requerido'),
   country: Yup.string().required('Requerido'),
   society: Yup.string().required('Requerido')
@@ -154,7 +151,7 @@ const Registry = () => {
         validationSchema={yupSchema}
         onSubmit={values => {
           const template = tinytime('{DD}/{MM}/{YYYY}');
-          fetch('https://anestesia-dashboard.justinmark.now.sh/api/user', {
+          fetch('https://dashboard.anestesiaclasa.org/api/user', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -162,7 +159,6 @@ const Registry = () => {
               lastName: values.lastName,
               email: values.email,
               jobRole: values.jobRole,
-              dni: values.dni,
               country: values.country?.label,
               society: values.society?.label,
               date: template.render(new Date())
@@ -192,7 +188,6 @@ const Registry = () => {
               <TextInput label="Nombre" name="name" type="text" />
               <TextInput label="Apellido" name="lastName" type="text" />
               <TextInput label="Email" name="email" type="email" />
-              <TextInput label="DNI" name="dni" type="string" />
               <RadioButton
                 value={values.jobRole}
                 onChange={setFieldValue}
