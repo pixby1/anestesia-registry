@@ -5,9 +5,6 @@ function withApiHeaders(
   { methods }: { methods: string[] }
 ) {
   return async (req: NextApiRequest, res: NextApiResponse) => {
-    if (req.method === 'OPTIONS') {
-      res.status(200).end();
-    }
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader(
       'Access-Control-Allow-Methods',
