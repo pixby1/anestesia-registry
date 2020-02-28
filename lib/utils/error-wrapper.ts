@@ -1,8 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { NextApiRequest, NextApiResponse } from 'next';
 
-function errorWrapper(
-  handler: (req: NextApiRequest, res: NextApiResponse) => Promise<any>
-) {
+function errorWrapper(handler: (req: NextApiRequest, res: NextApiResponse) => Promise<any>) {
   return async (req: NextApiRequest, res: NextApiResponse) => {
     try {
       const result = await handler(req, res);

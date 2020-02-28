@@ -1,5 +1,4 @@
-// tslint:disable object-literal-sort-keys jsx-no-multiline-js ordered-imports jsx-no-lambda interface-name
-
+/* eslint-disable @typescript-eslint/no-explicit-any */
 // Packages
 import * as Yup from 'yup';
 import { Button, FormLabel, Input } from '@chakra-ui/core';
@@ -188,11 +187,7 @@ const Registry = () => {
               <TextInput label="Nombre" name="name" type="text" />
               <TextInput label="Apellido" name="lastName" type="text" />
               <TextInput label="Email" name="email" type="email" />
-              <RadioButton
-                value={values.jobRole}
-                onChange={setFieldValue}
-                error={errors.jobRole}
-              />
+              <RadioButton value={values.jobRole} onChange={setFieldValue} error={errors.jobRole} />
               <FormLabel>País</FormLabel>
               <MySelect
                 name="country"
@@ -234,9 +229,7 @@ const Registry = () => {
               >
                 Enviar
               </Button>
-              {succesRegistry ? (
-                <p style={{ color: '#0070F3' }}>Registro exitoso</p>
-              ) : null}
+              {succesRegistry ? <p style={{ color: '#0070F3' }}>Registro exitoso</p> : null}
             </Form>
           );
         }}

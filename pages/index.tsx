@@ -2,8 +2,6 @@ import * as React from 'react';
 
 import Registry from './registry';
 
-const Index = () => {
-  return <Registry />;
-};
+const Index = () => <Registry />;
 
 export default Index;

@@ -1,4 +1,3 @@
-// tslint:disable-next-line: interface-name
 interface Country {
   label: string;
   value: string;
@@ -6,7 +5,7 @@ interface Country {
 
 export const countries: Country[] = [
   { label: 'Argentina', value: 'Argentina' },
-  { label: 'Bolivia', value: 'Bolvia' },
+  { label: 'Bolivia', value: 'Bolivia' },
   { label: 'Brasil', value: 'Brasil' },
   { label: 'Chile', value: 'Chile' },
   { label: 'Colombia', value: 'Colombia' },
