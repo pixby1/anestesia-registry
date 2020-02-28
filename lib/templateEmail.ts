@@ -1,5 +1,3 @@
-// tslint:disable: object-literal-sort-keys
-
 function emailUser(email: string, society: string) {
   return {
     personalizations: [
