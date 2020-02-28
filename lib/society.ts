@@ -1,4 +1,3 @@
-// tslint:disable-next-line: interface-name
 interface Society {
   label: string;
   value: string;
@@ -6,11 +5,11 @@ interface Society {
 
 const societys: Society[] = [
   { label: 'Argentina', value: 'Argentina' },
-  { label: 'Bolivia', value: 'Bolvia' },
+  { label: 'Bolivia', value: 'Bolivia' },
   { label: 'Brasil', value: 'Brasil' },
   { label: 'Chile', value: 'Chile' },
   { label: 'Colombia', value: 'Colombia' },
-  { label: 'Costa Rica', value: 'Costa rica' },
+  { label: 'Costa Rica', value: 'Costa Rica' },
   { label: 'Cuba', value: 'Cuba' },
   { label: 'República Dominicana', value: 'República Dominicana' },
   { label: 'Ecuador', value: 'Ecuador' },
