@@ -11,6 +11,7 @@
     "formik": "^2.1.4",
     "next": "^9.2.2",
     "react": "^16.13.0",
+    "react-datepicker": "^2.13.0",
     "react-dom": "^16.13.0",
     "react-phone-number-input": "^3.0.19",
     "react-radio-group": "^3.0.3",
@@ -20,6 +21,7 @@
   "devDependencies": {
     "@types/node": "^13.7.6",
     "@types/node-fetch": "^2.5.5",
+    "@types/react-datepicker": "^2.11.0",
     "@types/react-phone-number-input": "^3.0.2",
     "@types/react-radio-group": "^3.0.2",
     "@types/react-select": "^3.0.10",
