@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import 'react-datepicker/dist/react-datepicker.css';
 import 'react-phone-input-2/lib/plain.css';
+import 'antd/dist/antd.css';
 
 function MyApp({ Component, pageProps }: any) {
   return <Component {...pageProps} />;
