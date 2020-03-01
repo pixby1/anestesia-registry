@@ -1,8 +1,8 @@
 import { CSSReset, Flex, theme, ThemeProvider } from '@chakra-ui/core';
-import * as React from 'react';
+import { ReactNode } from 'react';
 
 interface Props {
-  children: object;
+  children: ReactNode;
 }
 
 const Layout = (props: Props) => {
