@@ -1,12 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 // Packages
 import * as Yup from 'yup';
-import { Button, FormLabel, Input } from '@chakra-ui/core';
+import { Button, FormLabel } from '@chakra-ui/core';
 import { Radio, RadioGroup } from 'react-radio-group';
 import { Form, Formik, useField } from 'formik';
 import { useState } from 'react';
+import { DatePicker, Input } from 'antd';
 import PhoneInput from 'react-phone-input-2';
-import DatePicker from 'react-datepicker';
 import Select from 'react-select';
 import tinytime from 'tinytime';
 
@@ -45,7 +45,7 @@ interface FormValues {
   name: string;
   lastName: string;
   email: string;
-  birthday: Date;
+  birthday: string;
   gender: string;
   phone: string;
   jobRole: string;
@@ -190,18 +190,13 @@ const DateBirthday = (props: DatePickerProps) => {
   return (
     <div style={{ marginBottom: '1em' }}>
       <DatePicker
-        selected={value}
-        onChange={selectValue => {
-          onChange('birthday', selectValue);
+        value={value}
+        onChange={date => {
+          onChange('birthday', date);
         }}
         onFocus={() => {
           onBlur('birthday', true);
         }}
-        isClearable
-        peekNextMonth
-        showMonthDropdown
-        showYearDropdown
-        dropdownMode="select"
       />
       <MessageError title={error} />
     </div>
@@ -212,7 +207,7 @@ const initialValues: FormValues = {
   name: '',
   lastName: '',
   email: '',
-  birthday: new Date(),
+  birthday: '',
   gender: '',
   phone: '',
   jobRole: '',
@@ -227,7 +222,7 @@ const yupSchema = Yup.object({
   email: Yup.string()
     .email('Email invalidado')
     .required('Requerido'),
-  birthday: Yup.date()
+  birthday: Yup.string()
     .typeError('Ingrese una fecha de nacimiento')
     .required('Ingrese una fecha de nacimiento'),
   gender: Yup.string().required('Requerido'),
@@ -247,13 +242,14 @@ const Registry = () => {
         validationSchema={yupSchema}
         onSubmit={values => {
           const template = tinytime('{DD}/{MM}/{YYYY}');
+          const dateParse = new Date(values.birthday);
           fetch('https://dashboard.anestesiaclasa.org/api/user', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
               name: values.name,
               lastName: values.lastName,
-              birthday: template.render(values.birthday),
+              birthday: template.render(dateParse),
               email: values.email,
               phone: values.phone,
               gender: values.gender,
