@@ -113,7 +113,7 @@ const RadioButton = (props: RadioProps) => {
     <div style={{ marginBottom: '1em' }}>
       <RadioGroup
         selectedValue={value}
-        onChange={select => {
+        onChange={(select) => {
           onChange(name, select);
         }}
       >
